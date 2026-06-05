@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maelmahf <maelmahf@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/26 02:26:13 by maelmahf          #+#    #+#             */
+/*   Updated: 2026/02/26 02:33:45 by maelmahf         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "iter.hpp"
+
+void times_two(int &i)
+{
+	i *= 2;
+}
+
+void to_upper(std::string &str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+		str[i] = std::toupper(str[i]);
+}
+
+int main( void )
+{
+	std::cout << "Test int array\n";
+	int int_arr[] = {1, 2, 3};
+
+	::iter(int_arr, 3, times_two);
+	for (int i = 0; i < 3; i++)
+		std::cout << int_arr[i] << std::endl;
+
+	std::cout << "Test string array\n";
+	std::string str_arr[] = {"Hello", "World", "!"};
+	::iter(str_arr, 3, to_upper);
+	for (int i = 0; i < 3; i++)
+		std::cout << str_arr[i] << std::endl;
+
+	return 0;
+}
